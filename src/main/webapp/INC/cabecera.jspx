@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jsp:root   xmlns:jsp="http://java.sun.com/JSP/Page"
+            xmlns:c="http://java.sun.com/jsp/jstl/core"
+            version="2.1">
+ 
+  
+
+    <jsp:element name="text">
+        <jsp:attribute name="lang">EN</jsp:attribute>
+        
+            <head>
+               <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/estilo.css"/>
+            </head>
+        
+        <jsp:body>
+            <IMG SRC="${pageContext.request.contextPath}/IMG/empresa.png"/>
+
+        </jsp:body>
+    </jsp:element>
+</jsp:root>

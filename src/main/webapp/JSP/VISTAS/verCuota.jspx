@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jsp:root    xmlns:c="http://java.sun.com/jsp/jstl/core"
+            xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+            xmlns:jsp="http://java.sun.com/JSP/Page"
+            version="2.1">
+    <jsp:directive.page contentType="text/html; charset=UTF-8" />
+    <jsp:directive.page isELIgnored="false" />
+    <jsp:output omit-xml-declaration="false"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd" />
+
+    <jsp:element name="text">
+        <jsp:attribute name="lang">EN</jsp:attribute>
+        
+        <jsp:body> 
+            <c:set var="testLang" value="${codigo3}"/>
+            <fmt:setLocale value="${testLang}"/>
+  
+            <fmt:bundle basename="${codigo3}">
+        
+                <form action="../../index.jspx">
+          
+            <jsp:include page="../../INC/cabecera.jspx"/>
+            
+            <h1><fmt:message key="desgloseedificios"/></h1>
+          
+            <table>
+                <c:if test="${casillaedificio.equals('on')}">
+                <tr>
+                    <td><fmt:message key="tipoedificio"/></td>
+                    <td><c:out value="${edificio.tipo}"/></td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="numerohabitaciones"/></td>
+                    <td><c:out value="${edificio.habitaciones}"/></td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="fechaconstruccion"/></td>
+                    <td><c:out value="${edificio.fecha}"/></td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="tipoconstruccion"/></td>
+                    <td><c:out value="${edificio.construccion}"/></td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="valorestimado"/></td>
+                    <td><c:out value="${edificio.mercado}"/><fmt:message key="moneda"/></td>
+                </tr>
+              
+                <tr>
+                    <td><fmt:message key="totaledificio"/></td>
+                    <td> <fmt:formatNumber value="${prima}" pattern="#,##0.00"/><fmt:message key="moneda"/></td>
+                </tr>
+                </c:if>  
+                <c:if test="${casillacontenido.equals('on')}">
+                <tr>
+                    <td><h1><fmt:message key="desglosecontenido"/></h1></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="cantidad"/></td>
+                    <td><c:out value="${contenidoBean.cantidad}"/><fmt:message key="moneda"/></td>
+                </tr>
+                <tr>
+                    <td><c:if test="${contenidoBean.franquicia!=0}">
+                            <fmt:message key="franquicia"/>
+                        </c:if>
+                    </td>
+                    <td><c:if test="${contenidoBean.franquicia!=0}">
+                            <c:out value="${contenidoBean.franquicia}"/><fmt:message key="moneda"/>
+                        </c:if>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <c:if test="${contenidoBean.accidentales=='on'}">
+                            <fmt:message key="danos"/>
+                   </c:if>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="totalcontenido"/></td>
+                    <td><c:out value="${primaC}"/><fmt:message key="moneda"/></td>
+                </tr>
+                </c:if>
+                
+                <c:if test="${casillacontenido.equals('on')}">
+                    <c:if test="${casillaedificio.equals('on')}">
+                 <tr>
+                    <td><fmt:message key="totalcuota"/></td>
+                    <td><fmt:formatNumber value="${primaC+prima}" pattern="#,##0.00"/> <fmt:message key="moneda"/></td>
+                 </tr>
+                 </c:if>
+                </c:if>
+                 <tr>
+                     <td><fmt:message var="volver" key="volver"/>
+                        <input type="submit" value="${volver}" name="volver"/></td>
+                     <td></td>
+                </tr>
+            </table>
+
+            <jsp:include page="../../INC/pie.jspx"/>
+            </form>
+            
+            </fmt:bundle>
+         </jsp:body>
+    </jsp:element>
+</jsp:root>
