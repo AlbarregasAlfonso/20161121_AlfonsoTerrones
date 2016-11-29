@@ -11,6 +11,7 @@ public class Edificio {
     int habitaciones;
     int fecha;
     String construccion;
+    // LA CANTIDAD ES DOUBLE
     int mercado;
 
     public String getConstruccion() {
@@ -20,7 +21,7 @@ public class Edificio {
     public void setConstruccion(String construccion) {
         this.construccion = construccion;
     }
-   
+
     public String getTipo() {
         return tipo;
     }
@@ -53,5 +54,5 @@ public class Edificio {
     public void setMercado(int mercado) {
         this.mercado = mercado;
     }
-    
+
 }

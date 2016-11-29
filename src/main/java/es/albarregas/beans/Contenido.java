@@ -11,6 +11,7 @@ package es.albarregas.beans;
  */
 public class Contenido {
     String accidentes;
+    // LAS CANTIDADES SON DOUBLE
     int franquicia;
     int cantidad;
 
@@ -37,7 +38,7 @@ public class Contenido {
     public void setAccidentales(String accidentales) {
         this.accidentes = accidentales;
     }
-    
+
 
 
 

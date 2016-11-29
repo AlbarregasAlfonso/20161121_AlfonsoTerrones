@@ -11,21 +11,22 @@
 
     <jsp:element name="text">
         <jsp:attribute name="lang">EN</jsp:attribute>
-           
-          
-    
-        <jsp:body> 
-           
+
+<!-- TE FALTA UN BEAN
+LA ELECCIÓN DEL IDIOMA IRIA EN UNA PÁGINA ANTERIOR -->
+
+        <jsp:body>
+<!-- TE HE DICHO VARIAS VECES QUE LOS FORMULARIOS SE ENVIAN POR EL METODO POST -->
             <form action="${pageContext.request.contextPath}/JSP/CONTROLADORES/Eleccion.jspx">
              <jsp:include page="INC/cabecera.jspx"/>
-            
+
             <h2>¡ Elija su seguro !</h2>
             <h1>Por favor elegir el seguro de los edificios, seguro de contenido,o ambos, marcando las casillas de abajo</h1>
 
             <select name="pais">
                         <option value="es_ES">Seleccione udioma</option>
                         <option value="es_ES">Español</option>
-                        <option value="en_GB">Inglés</option>               
+                        <option value="en_GB">Inglés</option>
             </select>
             <p>¿Que tipo de seguro quiere?</p>
             <input type="checkbox"  name="edificio" checked="checked"/>Seguro de edificios <br/>
@@ -33,7 +34,7 @@
             <input type="submit" value="enviar" name="enviar" />
             <br/>
             <jsp:include page="INC/pie.jspx"/>
-           
+
             </form>
         </jsp:body>
     </jsp:element>

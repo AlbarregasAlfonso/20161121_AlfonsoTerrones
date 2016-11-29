@@ -11,9 +11,9 @@
 
     <jsp:element name="text">
         <jsp:attribute name="lang">EN</jsp:attribute>
-        
-        <jsp:body>       
-            
+
+        <jsp:body>
+
             <c:if test="${param.pais=='es_ES'}">
                 <c:set var="codigo1" scope="session" value="es"/>
                 <c:set var="codigo2" scope="session" value="ES"/>
@@ -22,20 +22,20 @@
             </c:if>
             <c:if   test="${param.pais=='en_GB'}">
                 <c:set var="codigo1" scope="session" value="en"/>
-                <c:set var="codigo2" scope="session" value="GB"/>  
-                <c:set var="codigo3" scope="session" value="en_GB"/>   
+                <c:set var="codigo2" scope="session" value="GB"/>
+                <c:set var="codigo3" scope="session" value="en_GB"/>
                 <c:out  value="${gb}"/>
             </c:if>
-
+<!-- ESTO ES UN BEAN -->
              <c:set scope="session" var="casillaedificio" value="${param.edificio}"/>
              <c:set scope="session" var="casillacontenido" value="${param.contenido}"/>
- 
-            <c:if test="${casillaedificio.equals('on')}">           
-              
+
+            <c:if test="${casillaedificio.equals('on')}">
+
               <jsp:forward page="../VISTAS/edificio.jspx"/>
-                
-            </c:if> 
-            <c:if test="${casillacontenido.equals('on')}"> 
+
+            </c:if>
+            <c:if test="${casillacontenido.equals('on')}">
                 <jsp:forward page="../VISTAS/contenido.jspx"/>
             </c:if>
 
